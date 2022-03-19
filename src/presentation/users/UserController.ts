@@ -28,7 +28,7 @@ export default class UserController {
     try {
       const created = await this.userService.registerUser(userRegisterDTO);
       session.user = created;
-      res.redirect('/feeds?msg=성공적으로 가입되었습니다.');
+      res.redirect('/?msg=성공적으로 가입되었습니다.');
     } catch (e) {
       res.redirect('/signup?msg=회원가입에 실패했습니다.');
     }
@@ -54,7 +54,7 @@ export default class UserController {
       console.log('user found:', found);
       if (!found) throw Error('User not found');
       session.user = found;
-      res.redirect('/feeds?msg=정상적으로 로그인되었습니다.');
+      res.redirect('/?msg=정상적으로 로그인되었습니다.');
     } catch (e) {
       res.redirect('/login?msg=등록된 사용자가 아닙니다.');
     }

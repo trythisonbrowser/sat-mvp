@@ -10,26 +10,24 @@ const logger = debug('PageController');
 export class PageController {
   @Get('/')
   @Render('index')
-  async redirectToFeeds() {
-    // todo: nothing;
+  async renderIndexPage(@QueryParam('msg') msg: string, @Res() res) {
+    res.locals.msg = msg;
   }
 
   @Get('/login')
   @Render('login')
   async renderLoginPage(@QueryParam('msg') msg: string, @Res() res) {
-    res.locals.msgType = 'danger';
     res.locals.msg = msg;
   }
 
   @Get('/signup')
   @Render('signup')
   async renderSignupPage(@QueryParam('msg') msg: string, @Res() res) {
-    res.locals.msgType = 'danger';
     res.locals.msg = msg;
   }
 
   @Get('/logout')
-  @Redirect('/feeds')
+  @Redirect('/')
   async logout(@Req() req, @Res() res: Response) {
     req.session.destroy(args => console.log(args));
     res.locals = {};
