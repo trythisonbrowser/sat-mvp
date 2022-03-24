@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/web-terminal.css" />
+    <title>Try This On Browser</title>
+  </head>
+  <body>
+    <%- include ('header') %>
+    <div id="content-root">
+      <div class="content-top">
+        <div
+          class="github-card"
+          data-github="DevopsArtFactory/klocust"
+          data-width="400"
+          data-theme="default"
+        ></div>
+        <div id="readme"></div>
+      </div>
+      <iframe id="web-terminal" src="http://localhost:9999" frameborder="0"></iframe>
+      <!-- ttdy <==> localhost:9999 <==> 터미널로 꽉 찬 페이지 -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.2/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+    <!-- ReadMe 다운로드하고 렌더링 -->
+    <script>
+      const RAW_README_URL =
+        'https://raw.githubusercontent.com/DevopsArtFactory/klocust/main/README.md';
+
+      fetch(RAW_README_URL, { referrer: '' })
+        .then(data => {
+          return data.text(); // async
+        })
+        .then(data => {
+          console.log(data);
+
+          // browser without AMD, added to "window" on script load
+          // Note, there is no dash in "markdownit".
+          var md = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+          });
+          var result = md.render(data);
+          console.log(result);
+          document.getElementById('readme').innerHTML = result;
+        });
+    </script>
+  </body>
+</html>
