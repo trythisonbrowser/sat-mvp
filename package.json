@@ -8,7 +8,8 @@
     "initdb": "npx ts-node initializeDBTable.ts",
     "mysql": "docker-compose -f ./docker-compose.mysql.yml up",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "ttyd": "./ttyd -p 9999 -c admin:admin bash"
   },
   "dependencies": {
     "@mikro-orm/cli": "^4.5.9",

@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TTOB! - Sign in</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link rel="stylesheet" href="/stylesheets/login.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-</head>
-
-<body>
-  <%- include ('header') %>
-  <div class="main">
-    <p class="sign" align="center">Sign in</p>
-    <form id="sign-in-form" class="form1" action="/users/login" method="POST">
-      <input class="un" name="username" type="text" align="center" placeholder="Username">
-      <input class="pass" name="password" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center" href="javascript:{}" onclick="document.getElementById('sign-in-form').submit();">Sign in</a>
-      <p class="forgot" align="center"><a href="/signup">Submit</p>
+  <head>
+    <title>TTOB! - Sign in</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+    <%- include ('header') %>
+  </head>
+  <body>
+    <div class="container" style="max-width: 540px; margin-top: 120px">
+      <h1 style="margin-bottom: 16px">Login</h1>
+      <form action="/users/login" method="post">
+        <div class="mb-3">
+          <label for="id" class="form-label">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="id"
+            name="username"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="pw" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="pw" />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="keep-login-btn" />
+          <label class="form-check-label" for="keep-login-btn">로그인 상태 유지</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-     
-</body>
-
+  </body>
 </html>

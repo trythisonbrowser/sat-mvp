@@ -34,4 +34,10 @@ export class PageController {
     logger('removed session & locals');
     // todo: nothing;
   }
+
+  @Get('/web-terminal')
+  @Render('web-terminal')
+  async webTerminal() {
+    // do nothing;
+  }
 }
