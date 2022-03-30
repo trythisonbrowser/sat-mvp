@@ -10,3 +10,6 @@ Try This On Browser MVP
 
 #### Page: Sign in
 ![](docs/signin.png)
+
+#### Page: Web Terminal
+![](docs/webterminal.png)
