@@ -18,6 +18,9 @@ import UserRepository from './src/domain/repositories/UserRepository';
   // dotenv 설정
   dotenv.config();
 
+  // TTYD_ENV 설정
+  if (process.env.NODE_ENV !== 'production') process.env.TTYD_HOST = 'localhost';
+
   // 비동기로 MikroORM이 초기화된 후에야 Repository를 생성할 수 있는데 더 깔끔한 방법이 없을까?
   /* @ts-ignore */
   const orm = await MikroORM.init(mikroOrmConfig);

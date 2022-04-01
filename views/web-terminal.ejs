@@ -19,7 +19,11 @@
         ></div>
         <div id="readme"></div>
       </div>
-      <iframe id="web-terminal" src="http://localhost:9999" frameborder="0"></iframe>
+      <iframe
+        id="web-terminal"
+        src="http://<%= process.env.TTYD_HOST%>:9999"
+        frameborder="0"
+      ></iframe>
       <!-- ttdy <==> localhost:9999 <==> 터미널로 꽉 찬 페이지 -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.2/markdown-it.min.js"></script>

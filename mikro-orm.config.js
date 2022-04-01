@@ -4,9 +4,6 @@ import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 // dotenv 설정
 dotenv.config();
 
-// docker가 아니라면 localhost DB 이므로 localhost로 치환해주는 게 맞음.
-if (process.env.NODE_ENV !== 'docker') process.env.MYSQL_HOST = 'localhost';
-
 export default {
   debug: true,
   metadataProvider: TsMorphMetadataProvider,
