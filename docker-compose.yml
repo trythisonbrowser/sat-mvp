@@ -10,7 +10,6 @@ services:
     env_file: .env
     environment:
       - TTYD_HOST=18.235.194.72
-      - MYSQL_HOST=mysql
     depends_on:
       - mysql
 
@@ -33,7 +32,7 @@ services:
     image: tsl0922/ttyd
     restart: always # 해당 이미지에서 사용한 tini 때문에, WS Connection이 종료되면 컨테이너가 종료될 수 밖에 없음.
                     # 물론 추후 직접 이미지를 만들기 때문에 이 문제는 추후 발생하지 않음.
-    ports: 
+    ports:
       - "9999:9999"
     command: [ "ttyd", "-p", "9999", "-c", "1234:1234", "bash" ]
 

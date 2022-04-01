@@ -6,7 +6,7 @@
     "start": "set DEBUG=*,-send,-express:router*,-body-parser*,-express-session,-express:view & tsc-watch --onSuccess \"node build/app.js\"",
     "start_linux": "DEBUG=* tsc-watch --onSuccess \"node build/app.js\"",
     "initdb": "npx ts-node initializeDBTable.ts",
-    "mysql": "docker-compose -f ./docker-compose.mysql.yml up",
+    "mysql": "docker-compose up mysql",
     "build": "tsc",
     "test": "jest",
     "ttyd": "./ttyd -p 9999 -c admin:admin bash"
